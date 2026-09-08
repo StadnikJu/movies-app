@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router";
 import { PageNotFound } from "../PageNotFound /PageNotFound";
 import { CategoryMovies } from "@/features/categoryMovies/categoryMovies";
 import { FilteredMovies } from "@/features/filteredMovies/FilteredMovies";
-import { Search } from "@mui/icons-material";
+import { Search } from "@/features/search/ui/Search";
 import { Favorites } from "@/features/favorites/Favorites";
 
 export const Path = {

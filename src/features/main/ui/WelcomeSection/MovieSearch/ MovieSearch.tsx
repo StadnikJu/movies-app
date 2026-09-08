@@ -2,10 +2,16 @@ import { selectThemeMode } from "@/app/model/app-slice";
 import { useAppSelector } from "@/common/hooks";
 import { Box, Button, TextField } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
-export const MovieSearch = () => {
+type MovieSearchProps = {
+  initialQuery?: string;
+};
+
+export const MovieSearch = ({ initialQuery = "" }: MovieSearchProps) => {
     const themeMode = useAppSelector(selectThemeMode);
-    const [query, setQuery] = useState("");
+    const [query, setQuery] = useState(initialQuery);
+    const navigate = useNavigate();
 
     return (
         <Box sx={{ display: "flex", gap: 2, alignItems: "center", maxWidth: "600px" }}>
@@ -37,6 +43,7 @@ export const MovieSearch = () => {
             variant="contained"
             disabled={!query.trim()}
             color="primary"
+            onClick={() => navigate(`/search?query=${encodeURIComponent(query.trim())}`)}
             sx={{
                 borderRadius: "30px",
                 padding: "14px 32px",

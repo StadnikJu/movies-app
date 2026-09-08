@@ -4,9 +4,7 @@ import type { MoviesResponse } from "./mainApi.types";
 export const moviesApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     fetchMovies: build.query<MoviesResponse, void>({
-      query: () => ({
-        url: "/movie/popular",
-      }),
+      query: () => "/movie/popular",
     }),
   }),
 });

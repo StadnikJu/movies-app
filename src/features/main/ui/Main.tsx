@@ -24,7 +24,7 @@ export const Main = () => {
         width: "100%",
         minHeight: "700px", 
         position: "relative",
-        backgroundImage: `url(${IMAGE_BASE_URL}${randomMovie?.backdrop_path})`,
+        backgroundImage: randomMovie?.backdrop_path ? `url(${IMAGE_BASE_URL}${randomMovie?.backdrop_path})` : "none",
         backgroundSize: "cover",
         backgroundPosition: "center",
         display: "flex",
