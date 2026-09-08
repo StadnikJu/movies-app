@@ -7,7 +7,7 @@ import { Search } from "@mui/icons-material";
 import { Favorites } from "@/features/favorites/Favorites";
 
 export const Path = {
-  Main: "/main",
+  Main: "/",
   CategoryMovies: "/category-movies",
   FilteredMovies: "/filtered-movies",
   Search: "/search",
