@@ -1,13 +1,18 @@
 import { selectThemeMode } from "@/app/model/app-slice";
 import { useAppSelector } from "@/common/hooks";
 import { Box, Button, TextField } from "@mui/material";
+import { useState } from "react";
 
 export const MovieSearch = () => {
     const themeMode = useAppSelector(selectThemeMode);
+    const [query, setQuery] = useState("");
+
     return (
         <Box sx={{ display: "flex", gap: 2, alignItems: "center", maxWidth: "600px" }}>
         <TextField
             fullWidth
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
             placeholder="Search for a movie"
             variant="outlined"
             sx={{
@@ -30,16 +35,22 @@ export const MovieSearch = () => {
         />
         <Button
             variant="contained"
+            disabled={!query.trim()}
             color="primary"
             sx={{
-            borderRadius: "30px",
-            padding: "14px 32px",
-            textTransform: "none",
-            fontSize: "1rem",
-            fontWeight: 500,
-            boxShadow: "none",
-            whiteSpace: "nowrap",
-            "&:hover": { boxShadow: "none" },
+                borderRadius: "30px",
+                padding: "14px 32px",
+                textTransform: "none",
+                fontSize: "1rem",
+                fontWeight: 800,
+                boxShadow: "none",
+                whiteSpace: "nowrap",
+                "&:hover": { boxShadow: "none" },
+                "&.Mui-disabled": {
+                    backgroundColor: "primary.main",
+                    color: "#fff",
+                    opacity: 0.5
+                },
             }}
         >
             Search

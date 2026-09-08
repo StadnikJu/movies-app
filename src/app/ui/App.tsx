@@ -1,4 +1,4 @@
-import { Header, Routing } from "@/common/components";
+import { Footer, Header, Routing } from "@/common/components";
 import styles from "./App.module.css";
 import { useAppSelector } from "@/common/hooks";
 import { selectThemeMode } from "../model/app-slice";
@@ -12,13 +12,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box className={styles.app} sx={{ backgroundColor: "background.default", color: "text.primary" }}>
+      <Box className={styles.app} sx={{ backgroundColor: "background.default", color: "text.primary", display: "flex", flexDirection: "column" }}>
         <Header />
-        <Box  component="main" sx={{ width: "100%" }}>
-          <main>
-            <Routing />
-          </main>
+        <Box  component="main" sx={{ width: "100%", flexGrow: 1 }}>
+          <Routing />
         </Box> 
+        <Footer />
       </Box>
     </ThemeProvider>
   );
