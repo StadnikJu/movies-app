@@ -1,9 +1,9 @@
 import { Box, Container } from "@mui/material";
 import { useFetchMoviesQuery } from "../api/mainApi";
 import { useEffect, useState } from "react";
-import type { Movie } from "../api/mainApi.types";
-import { MovieSearch } from "./WelcomeSection/MovieSearch/ MovieSearch";
+import { MovieSearch } from "./WelcomeSection/MovieSearch/MovieSearch";
 import { WelcomeSection } from "./WelcomeSection/WelcomeTitle/WelcomeSection";
+import type { Movie } from "@/common/types";
 
 export const Main = () => {
   const [randomMovie, setRandomMovie] = useState<Movie | null>(null);

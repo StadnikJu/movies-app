@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router";
-import { MovieSearch } from "../../main/ui/WelcomeSection/MovieSearch/ MovieSearch";
+import { MovieSearch } from "../../main/ui/WelcomeSection/MovieSearch/MovieSearch";
 import { Box, Typography, Container } from "@mui/material";
 import { useState } from "react";
 import { SearchResults } from "./SearchResults";

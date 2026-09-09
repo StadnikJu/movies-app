@@ -1,5 +1,5 @@
 import { baseApi } from "@/app/api/baseApi";
-import type { MoviesResponse } from "@/features/main/api/mainApi.types";
+import type { MoviesResponse } from "@/common/types";
 import type { SearchMoviesParams } from "./searchApi.types";
 
 export const moviesApi = baseApi.injectEndpoints({

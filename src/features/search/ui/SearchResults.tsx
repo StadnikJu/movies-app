@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import { MovieCard } from "./ MovieCard";
-import type { Movie } from "../../main/api/mainApi.types";
+import { MovieCard } from "./MovieCard";
+import type { Movie } from "@/common/types";
 
 type SearchResultsProps = {
   movies: Movie[];

@@ -1,5 +1,5 @@
+import type { Movie } from "@/common/types";
 import { Box, Typography } from "@mui/material";
-import type { Movie } from "../../main/api/mainApi.types";
 
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 

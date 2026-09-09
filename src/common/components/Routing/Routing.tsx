@@ -1,14 +1,15 @@
 import { Main } from "@/features/main/ui/Main";
-import { Route, Routes } from "react-router";
-import { PageNotFound } from "../PageNotFound /PageNotFound";
-import { CategoryMovies } from "@/features/categoryMovies/categoryMovies";
+import { Navigate, Route, Routes } from "react-router";
 import { FilteredMovies } from "@/features/filteredMovies/FilteredMovies";
 import { Search } from "@/features/search/ui/Search";
 import { Favorites } from "@/features/favorites/Favorites";
+import { CategoryMovies } from "@/features/categoryMovies/ui/CategoryMovies";
+import { PageNotFound } from "../PageNotFound/PageNotFound";
 
 export const Path = {
   Main: "/",
   CategoryMovies: "/category-movies",
+  Category: "/category/:category",
   FilteredMovies: "/filtered-movies",
   Search: "/search",
   Favorites: "/favorites",
@@ -18,7 +19,8 @@ export const Path = {
 export const Routing = () => (
   <Routes>
     <Route path={Path.Main} element={<Main />} />
-    <Route path={Path.CategoryMovies} element={<CategoryMovies />} />
+    <Route path="/category-movies" element={<Navigate to="/category/popular" replace/>}/>
+    <Route path="/category/:category" element={<CategoryMovies />}/>
     <Route path={Path.FilteredMovies} element={<FilteredMovies />} />
     <Route path={Path.Search} element={<Search />} />
     <Route path={Path.Favorites} element={<Favorites />} />

@@ -1,5 +1,5 @@
 import { baseApi } from "@/app/api/baseApi";
-import type { MoviesResponse } from "./mainApi.types";
+import type { MoviesResponse } from "@/common/types";
 
 export const moviesApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
