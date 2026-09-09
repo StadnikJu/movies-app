@@ -34,7 +34,7 @@ export const Header = () => {
       color="default"
       sx={{  boxShadow: "none" }}
     >
-      <Container maxWidth="lg" disableGutters>
+      <Container maxWidth="lg">
         <Toolbar disableGutters sx={{ justifyContent: "space-between", minHeight: "100px" }}>
           <Box component={Link} to={Path.Main} sx={{ height: 26, width: "auto", cursor: "pointer", display: "block" }}>
             <Box component="img" src={tmdbLogo} alt="TMDB Logo" sx={{ height: "100%", width: "auto" }} />

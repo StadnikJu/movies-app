@@ -1,15 +1,6 @@
 import { baseApi } from "@/app/api/baseApi";
 import type { MoviesResponse } from "@/common/types";
-
-type MoviesParams = {
-  page: number;
-};
-
-export type MovieCategory = "popular" | "top-rated" | "upcoming" | "now-playing";
-
-type MoviesByCategoryParams = MoviesParams & {
-  category: MovieCategory;
-};
+import type { MovieCategory, MoviesByCategoryParams } from "./categoryMoviesApi.types";
 
 const categoryEndpoints: Record<MovieCategory, string> = {
   popular: "/movie/popular",

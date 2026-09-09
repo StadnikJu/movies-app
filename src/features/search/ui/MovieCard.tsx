@@ -11,7 +11,7 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
       {movie.poster_path ? (
-        <Box component="img" src={`${IMAGE_BASE_URL}${movie.poster_path}`} alt={movie.title}
+        <Box component="img" src={`${IMAGE_BASE_URL}${movie.poster_path}`} alt={movie.title} 
           sx={{
             width: "100%",
             aspectRatio: "2 / 3",
