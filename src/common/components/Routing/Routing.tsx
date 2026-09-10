@@ -2,7 +2,7 @@ import { Main } from "@/features/main/ui/Main";
 import { Navigate, Route, Routes } from "react-router";
 import { FilteredMovies } from "@/features/filteredMovies/FilteredMovies";
 import { Search } from "@/features/search/ui/Search";
-import { Favorites } from "@/features/favorites/Favorites";
+import { Favorites } from "@/features/favorites/ui/Favorites";
 import { CategoryMovies } from "@/features/categoryMovies/ui/CategoryMovies";
 import { PageNotFound } from "../PageNotFound/PageNotFound";
 

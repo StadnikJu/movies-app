@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from "@mui/material";
 import { useParams } from "react-router";
 import { useFetchMoviesByCategoryQuery } from "../api/categoryMoviesApi";
-import { MovieCard } from "@/features/search/ui/MovieCard";
+import { MovieCard } from "@/common/components/MovieCard/MovieCard";
 import { useEffect, useState } from "react";
 import { MainPagination } from "@/common/components";
 import { CategoryButtons } from "./CategoryButtons";
@@ -17,6 +17,7 @@ export const CategoryMovies = () => {
 
   useEffect(() => {
     setPage(1);
+    window.scrollTo(0, 0);
   }, [category])
 
   return (

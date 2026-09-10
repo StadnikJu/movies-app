@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { MovieCard } from "./MovieCard";
+import { MovieCard } from "../../../common/components/MovieCard/MovieCard";
 import type { Movie } from "@/common/types";
 
 type SearchResultsProps = {

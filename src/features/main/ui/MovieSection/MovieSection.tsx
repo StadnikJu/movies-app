@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
 import { useFetchMoviesByCategoryQuery } from "@/features/categoryMovies/api/categoryMoviesApi";
-import { MovieCard } from "@/features/search/ui/MovieCard";
+import { MovieCard } from "@/common/components/MovieCard/MovieCard";
 import type { MovieCategory } from "@/features/categoryMovies/api/categoryMoviesApi.types";
 
 type MoviesSectionProps = {
