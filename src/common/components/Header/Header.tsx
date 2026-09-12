@@ -21,31 +21,22 @@ export const Header = () => {
   const themeMode = useAppSelector(selectThemeMode);
 
   const changeTheme = () => {
-    dispatch(
-      changeThemeModeAC({
-        themeMode: themeMode === "light" ? "dark" : "light",
-      }),
-    );
+    const newTheme = themeMode === "light" ? "dark" : "light";
+    dispatch(changeThemeModeAC({themeMode: newTheme}));
+    localStorage.setItem("themeMode", newTheme);
   };
 
   return (
-    <AppBar
-      position="static"
-      color="default"
-      sx={{  boxShadow: "none" }}
-    >
+    <AppBar position="static" color="default" sx={{  boxShadow: "none" }}>
       <Container maxWidth="lg">
         <Toolbar disableGutters sx={{ justifyContent: "space-between", minHeight: "100px" }}>
           <Box component={Link} to={Path.Main} sx={{ height: 26, width: "auto", cursor: "pointer", display: "block" }}>
             <Box component="img" src={tmdbLogo} alt="TMDB Logo" sx={{ height: "100%", width: "auto" }} />
           </Box>
-
           <Box sx={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
             {navItems.map((item, index) => (
               <React.Fragment key={item.path}>
-                <Button
-                  component={NavLink}
-                  to={item.path}
+                <Button component={NavLink} to={item.path}
                   sx={{
                     color: "text.primary",
                     textTransform: "none",
@@ -71,11 +62,7 @@ export const Header = () => {
           </Box>
 
           <IconButton
-            sx={{
-              color: "secondary.main",
-              backgroundColor: "action.hover",
-              "&:hover": { backgroundColor: "action.selected" },
-            }}
+            sx={{ color: "secondary.main", backgroundColor: "action.hover", "&:hover": { backgroundColor: "action.selected" }}}
             onClick={changeTheme}
           >
             {themeMode === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
@@ -85,6 +72,3 @@ export const Header = () => {
     </AppBar>
   );
 };
-
-
-// disableGutters

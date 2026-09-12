@@ -24,7 +24,7 @@ export const Main = () => {
       <Box
         sx={{
           width: "100%",
-          minHeight: "700px", 
+          minHeight: "700px",
           position: "relative",
           backgroundImage: randomMovie?.backdrop_path ? `url(${IMAGE_BASE_URL}${randomMovie?.backdrop_path})` : "none",
           backgroundSize: "cover",
@@ -39,8 +39,8 @@ export const Main = () => {
           <WelcomeSection />
           <MovieSearch />
         </Container>
-      </Box> 
-      <Container maxWidth="lg"> 
+      </Box>
+      <Container maxWidth="lg">
         <MovieSection title="Popular Movies" category="popular" />
         <MovieSection title="Top Rated Movies" category="top-rated" />
         <MovieSection title="Upcoming Movies" category="upcoming" />
@@ -49,4 +49,3 @@ export const Main = () => {
     </Box>
   );
 };
-

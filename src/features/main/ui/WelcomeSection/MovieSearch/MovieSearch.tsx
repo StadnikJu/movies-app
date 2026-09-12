@@ -1,7 +1,8 @@
 import { selectThemeMode } from "@/app/model/app-slice";
 import { useAppSelector } from "@/common/hooks";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, IconButton, TextField } from "@mui/material";
 import { useState } from "react";
+import ClearIcon from "@mui/icons-material/Clear";
 import { useNavigate } from "react-router";
 
 type MovieSearchProps = {
@@ -21,10 +22,19 @@ export const MovieSearch = ({ initialQuery = "" }: MovieSearchProps) => {
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search for a movie"
         variant="outlined"
+        slotProps={{
+          input: {
+            endAdornment: query ? (
+              <IconButton onClick={() => {setQuery(""); navigate("/search")}}>
+                <ClearIcon />
+              </IconButton>
+            ) : null,
+          },
+        }}
         sx={{
           backgroundColor: themeMode === "dark" ? "background.paper" : "#ffffff",
           borderRadius: "30px",
-           border: themeMode === "light" ? "1px solid #1a18187c" : "none",
+          border: themeMode === "light" ? "1px solid #1a18187c" : "none",
           "& .MuiOutlinedInput-root": {
             borderRadius: "30px",
             "& fieldset": { border: "none" },
@@ -44,7 +54,11 @@ export const MovieSearch = ({ initialQuery = "" }: MovieSearchProps) => {
         variant="contained"
         disabled={!query.trim()}
         color="primary"
-        onClick={() => navigate(`/search?query=${encodeURIComponent(query.trim())}`)}
+        onClick={() => {
+          navigate("/search", {
+            state: { query: query.trim() },
+          });
+        }}
         sx={{
           borderRadius: "30px",
           padding: "14px 32px",
