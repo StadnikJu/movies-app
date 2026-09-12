@@ -64,7 +64,7 @@ export const MoviePoster = ({ movie }: MovieCardProps) => {
         </Box>
       )}
       <FavoriteButton movie={movie} />
-      <RatingBadge rating={movie.vote_average} />
+      <RatingBadge rating={movie.vote_average} variant="card"/>
     </Box>
   );
 };
