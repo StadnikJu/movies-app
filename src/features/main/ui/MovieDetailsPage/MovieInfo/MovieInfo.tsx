@@ -12,8 +12,8 @@ export const MovieInfo = ({data}: Props) => {
 
     return (
         <Grid size={{ xs: 12, md: 8 }} sx={{ display: "flex", flexDirection: "column" }}>
-        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2, gap: 2 }}>
-            <Typography variant="h6" component="h6" sx={{ fontWeight: 900, fontSize: { xs: "16px", md: "32px" }, mb: 2 }}>
+        <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, justifyContent: "space-between", alignItems: { xs: "flex-start", sm: "center" }, mb: 2, gap: 2 }}>
+            <Typography variant="h6" component="h6" sx={{ fontWeight: 900, fontSize: { xs: "20px", md: "32px" }, mb: { xs: 0, sm: 2 } }}>
             {data?.title}
             </Typography>
             <Button
@@ -39,9 +39,9 @@ export const MovieInfo = ({data}: Props) => {
             </Button>
         </Box>
 
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 4 }}>
+        <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, alignItems: { xs: "flex-start", sm: "center" }, gap: 2, mb: 4 }}>
             <RatingBadge rating={data?.vote_average ?? 0} variant="details" />
-            <Typography variant="body1" color="text.secondary" sx={{ display: "flex", gap: 1 }}>
+            <Typography variant="body1" color="text.secondary" sx={{ display: "flex", flexWrap: "wrap", gap: 1, fontSize: { xs: "0.9rem", sm: "1rem" } }}>
             <span>
                 Release year: <strong>{data?.release_date?.split("-")[0] || "N/A"}</strong>
             </span>
@@ -53,7 +53,7 @@ export const MovieInfo = ({data}: Props) => {
 
         <Typography
             variant="body1"
-            sx={{ fontSize: "1.1rem", lineHeight: 1.6, color: "text.secondary", mb: 4, maxWidth: 700 }}
+            sx={{ fontSize: { xs: "1rem", sm: "1.1rem" }, lineHeight: 1.6, color: "text.secondary", mb: 4, maxWidth: 700 }}
         >
             {data?.overview || "No description available."}
         </Typography>

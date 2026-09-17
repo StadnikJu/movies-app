@@ -37,14 +37,14 @@ export const FavoriteButton = ({ movie }: Props) => {
       onClick={handleFavoriteClick}
       sx={{
         position: "absolute",
-        top: 8,
-        right: 8,
+        top: {xs: 5, sm: 6,md: 8},
+        right: { xs: 5,sm: 6,md: 8},
         opacity: isFavorite ? 1 : 0,
         transition: "opacity 0.2s ease-in-out",
         color: isFavorite ? "#f9d312" : "#fff",
         backgroundColor: "rgba(0, 0, 0, 0.6)",
-        "&:hover": {
-          backgroundColor: "rgba(8, 58, 225, 0.946)",
+        "&:hover": {backgroundColor: "rgba(8, 58, 225, 0.946)"},
+        "& .MuiSvgIcon-root": {fontSize: {xs: "1.1rem", sm: "1.25rem", md: "1.5rem"},
         },
       }}
     >

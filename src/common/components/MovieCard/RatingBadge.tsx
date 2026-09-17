@@ -23,17 +23,17 @@ export const RatingBadge = ({ rating, variant }: Props) => {
       <Box
         sx={{
           position: "absolute",
-          bottom: 12,
-          right: 12,
+          bottom: {xs: 8,sm: 10,md: 12},
+          right: {xs: 8, sm: 10,md: 12},
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          width: 40,
-          height: 40,
+          width: {xs: 32,sm: 36, md: 40},
+          height: {xs: 32,sm: 36,md: 40},
           borderRadius: "50%",
           backgroundColor: getRatingColor(rating),
           color: "#fff",
-          fontSize: "1rem",
+          fontSize: {xs: "0.8rem",sm: "0.9rem",md: "1rem"},
           fontWeight: 700,
           boxShadow: "0 2px 8px rgba(0,0,0,0.4)",
         }}
@@ -46,21 +46,6 @@ export const RatingBadge = ({ rating, variant }: Props) => {
   return (
     <Box
       sx={{
-          // position: "absolute",
-          // bottom: 12,
-          // right: 12,
-          // display: "flex",
-          // alignItems: "center",
-          // justifyContent: "center",
-          // width: 40,
-          // height: 40,
-          // borderRadius: "50%",
-          // backgroundColor: getRatingColor(rating),
-          // color: "#fff",
-          // fontSize: "1rem",
-          // fontWeight: 700,
-          // boxShadow: "0 2px 8px rgba(0,0,0,0.4)",
-
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -68,11 +53,10 @@ export const RatingBadge = ({ rating, variant }: Props) => {
         height: 40,
         borderRadius: "50%",
         backgroundColor: getRatingColor(rating),
-        color: "#fff" ,
+        color: "#fff",
         fontSize: "1rem",
         fontWeight: 700,
         boxShadow: "0 2px 8px rgba(0,0,0,0.4)",
-        // px: 1.5,
       }}
     >
       {rating.toFixed(1)}

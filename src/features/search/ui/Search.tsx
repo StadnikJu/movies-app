@@ -5,22 +5,23 @@ import { SearchResults } from "./SearchResults";
 import { MainPagination } from "@/common/components";
 import { useSearchMoviesQuery } from "../api/searchApi";
 import { useLocation } from "react-router";
+import { SearchMoviesSkeleton } from "./SearchMoviesSkeleton/SearchMoviesSkeleton";
 
 export const Search = () => {
   const [page, setPage] = useState(1);
   const location = useLocation();
   const query =  (location.state as { query?: string } | null)?.query ?? "";
-  const { data } = useSearchMoviesQuery({ query, page });
+  const { data, isLoading } = useSearchMoviesQuery({ query, page });
 
   return (
-    <Container maxWidth="lg" disableGutters sx={{ py: 4 }}>
+    <Container maxWidth="lg" disableGutters sx={{ py: { xs: 3, md: 4 }, px: { xs: 2, sm: 3 } }}>
       <Box sx={{ width: "100%", display: "flex", flexDirection: "column", gap: 4 }}>
-        <Typography variant="h4" component="h3" sx={{ fontWeight: 600, color: "text.primary" }}>
+        <Typography variant="h4" component="h3" sx={{ fontWeight: 600, color: "text.primary", fontSize: { xs: "2rem", sm: "2.5rem" } }}>
           Search Results
         </Typography>
         <MovieSearch initialQuery={query} />
         {query.trim() && (
-          <Typography variant="h5" component="h4" sx={{ fontWeight: 600, color: "text.primary" }}>
+          <Typography variant="h5" component="h4" sx={{ fontWeight: 600, color: "text.primary", fontSize: { xs: "1.25rem", sm: "1.5rem" } }}>
             Results for "{query}"
           </Typography>
         )}
@@ -35,7 +36,7 @@ export const Search = () => {
           </Typography>
         ) : (
           <>
-            <SearchResults movies={data?.results ?? []} />
+            {isLoading ? <SearchMoviesSkeleton/> : <SearchResults movies={data?.results ?? []}/>}
             <MainPagination page={page} totalPages={data?.total_pages ?? 0} onPageChange={setPage} />
           </>
         )}

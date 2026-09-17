@@ -17,6 +17,7 @@ export const Main = () => {
     }
   }, [data]);
 
+
   const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
 
   return (
@@ -24,7 +25,7 @@ export const Main = () => {
       <Box
         sx={{
           width: "100%",
-          minHeight: "700px",
+          minHeight: { xs: "520px", md: "700px" },
           position: "relative",
           backgroundImage: randomMovie?.backdrop_path ? `url(${IMAGE_BASE_URL}${randomMovie?.backdrop_path})` : "none",
           backgroundSize: "cover",
@@ -32,10 +33,11 @@ export const Main = () => {
           display: "flex",
           alignItems: "center",
           overflow: "hidden",
-          mb: 6,
+          mb: { xs: 4, md: 6 },
+          px: { xs: 1, sm: 0 },
         }}
       >
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
+        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2, py: { xs: 2, md: 0 } }}>
           <WelcomeSection />
           <MovieSearch />
         </Container>

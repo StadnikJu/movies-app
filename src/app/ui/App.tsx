@@ -1,12 +1,13 @@
 import { Footer, Header, Routing } from "@/common/components";
 import styles from "./App.module.css";
 import { useAppSelector } from "@/common/hooks";
-import { selectThemeMode } from "../model/app-slice";
-import { Box,  CssBaseline, ThemeProvider } from "@mui/material";
+import { selectStatus, selectThemeMode } from "../model/app-slice";
+import { Box,  CssBaseline, LinearProgress, ThemeProvider } from "@mui/material";
 import { getTheme } from "@/common/theme";
 
 function App() {
   const themeMode = useAppSelector(selectThemeMode);
+  const status = useAppSelector(selectStatus);
   const theme = getTheme(themeMode);
 
   return (
@@ -14,6 +15,7 @@ function App() {
       <CssBaseline />
       <Box className={styles.app} sx={{ backgroundColor: "background.default", color: "text.primary", display: "flex", flexDirection: "column" }}>
         <Header />
+        {status === "loading" && <LinearProgress />}
         <Box  component="main" sx={{ width: "100%", flexGrow: 1 }}>
           <Routing />
         </Box> 
@@ -24,4 +26,3 @@ function App() {
 }
 
 export default App;
-

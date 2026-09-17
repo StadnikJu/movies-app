@@ -7,8 +7,6 @@ export const baseQuery = fetchBaseQuery({
       "Authorization",
       `Bearer ${import.meta.env.VITE_AUTH_TOKEN}`
     );
-    headers.set("accept", "application/json");
-
     return headers;
   },
 });

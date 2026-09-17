@@ -15,7 +15,8 @@ export const MovieSearch = ({ initialQuery = "" }: MovieSearchProps) => {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ display: "flex", gap: 2, alignItems: "center", maxWidth: "600px" }}>
+    <Box
+      sx={{display: "flex", flexDirection: { xs: "column", sm: "row" },gap: 1.5,alignItems: "stretch",maxWidth: "600px",width: "100%"}}>
       <TextField
         fullWidth
         value={query}
@@ -35,13 +36,14 @@ export const MovieSearch = ({ initialQuery = "" }: MovieSearchProps) => {
           backgroundColor: themeMode === "dark" ? "background.paper" : "#ffffff",
           borderRadius: "30px",
           border: themeMode === "light" ? "1px solid #1a18187c" : "none",
+          width: "100%",
           "& .MuiOutlinedInput-root": {
             borderRadius: "30px",
             "& fieldset": { border: "none" },
           },
           "& .MuiInputBase-input": {
             padding: "14px 24px",
-            fontSize: "1rem",
+            fontSize: { xs: "0.95rem", sm: "1rem" },
             color: "text.primary",
           },
           "& .MuiInputBase-input::placeholder": {
@@ -61,12 +63,13 @@ export const MovieSearch = ({ initialQuery = "" }: MovieSearchProps) => {
         }}
         sx={{
           borderRadius: "30px",
-          padding: "14px 32px",
+          padding: { xs: "12px 20px", sm: "14px 32px" },
           textTransform: "none",
-          fontSize: "1rem",
+          fontSize: { xs: "0.95rem", sm: "1rem" },
           fontWeight: 800,
           boxShadow: "none",
           whiteSpace: "nowrap",
+          width: { xs: "100%", sm: "auto" },
           "&:hover": { boxShadow: "none" },
           "&.Mui-disabled": {
             backgroundColor: "primary.main",
