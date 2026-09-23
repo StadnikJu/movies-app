@@ -1,6 +1,7 @@
 import { baseApi } from "@/app/api/baseApi";
 import type { GenresResponse, MoviesResponse } from "@/common/types";
 import type { FilteredMoviesParams } from "../model/types";
+import { genresResponseSchema, moviesResponseSchema } from "@/common/schemas/movieSchemas";
 
 export const filteredMoviesApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -8,10 +9,16 @@ export const filteredMoviesApi = baseApi.injectEndpoints({
       query: (params) => ({
         url: "/discover/movie",
         params
-      })
+      }),
+      transformResponse: (response) => {
+        return moviesResponseSchema.parse(response);
+      },
     }),
     fetchGenres: build.query<GenresResponse, void>({
       query: () => "/genre/movie/list",
+      transformResponse: (response) => {
+        return genresResponseSchema.parse(response);
+      },
     }),
   }),
 });

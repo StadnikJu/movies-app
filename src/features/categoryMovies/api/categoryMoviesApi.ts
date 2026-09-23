@@ -1,6 +1,7 @@
 import { baseApi } from "@/app/api/baseApi";
 import type { MoviesResponse } from "@/common/types";
 import type { MovieCategory, MoviesByCategoryParams } from "./categoryMoviesApi.types";
+import { moviesResponseSchema } from "@/common/schemas/movieSchemas";
 
 const categoryEndpoints: Record<MovieCategory, string> = {
   popular: "/movie/popular",
@@ -12,12 +13,15 @@ const categoryEndpoints: Record<MovieCategory, string> = {
 export const categoryMoviesApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     fetchMoviesByCategory: build.query<MoviesResponse, MoviesByCategoryParams>({
-        query: ({ category, page }) => ({
-            url: categoryEndpoints[category],
-            params: {
-                page,
-            },
-        }),
+      query: ({ category, page }) => ({
+        url: categoryEndpoints[category],
+        params: {
+          page,
+        },
+      }),
+      transformResponse: (response) => {
+        return moviesResponseSchema.parse(response);
+      },
     }),
   }),
 });

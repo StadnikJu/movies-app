@@ -1,4 +1,4 @@
-import { Footer, Header, Routing } from "@/common/components";
+import { ErrorSnackBar, Footer, Header, Routing } from "@/common/components";
 import styles from "./App.module.css";
 import { useAppSelector } from "@/common/hooks";
 import { selectStatus, selectThemeMode } from "../model/app-slice";
@@ -20,6 +20,7 @@ function App() {
           <Routing />
         </Box> 
         <Footer />
+        <ErrorSnackBar />
       </Box>
     </ThemeProvider>
   );

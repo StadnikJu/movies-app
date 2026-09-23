@@ -12,7 +12,7 @@ import { CategoryMoviesSkeleton } from "./CategoryMoviesSkeleton/CategoryMoviesS
 export const CategoryMovies = () => {
   const [page, setPage] = useState(1);
   const { category } = useParams();
-  const { data: moviesData, isLoading} = useFetchMoviesByCategoryQuery({category: category as MovieCategory, page});
+  const { data: moviesData, isLoading } = useFetchMoviesByCategoryQuery({category: category as MovieCategory, page});
 
   const currentTitle = categoryButtons.find(b => b.id === category)?.title ?? "Movies";
 

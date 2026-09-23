@@ -1,6 +1,7 @@
 import { baseApi } from "@/app/api/baseApi";
 import type { MoviesResponse } from "@/common/types";
 import type { SearchMoviesParams } from "./searchApi.types";
+import { moviesResponseSchema } from "@/common/schemas/movieSchemas";
 
 export const moviesApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -12,6 +13,9 @@ export const moviesApi = baseApi.injectEndpoints({
           page
         },
       }),
+      transformResponse: (response) => {
+        return moviesResponseSchema.parse(response);
+      },
     }),
   }),
 });
