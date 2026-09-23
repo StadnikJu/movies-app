@@ -15,7 +15,9 @@ const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 export const FavoriteButton = ({ movie }: Props) => {
   const favoriteMovies = getFavorites();
   const [isFavorite, setIsFavorite] = useState(favoriteMovies.some((favoriteMovie) => favoriteMovie.id === movie.id));
-  const handleFavoriteClick = () => {
+  const handleFavoriteClick = (event: React.MouseEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
     if (isFavorite) {
       removeFavorite(movie.id);
       setIsFavorite(false);

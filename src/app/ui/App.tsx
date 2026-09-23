@@ -1,4 +1,4 @@
-import { ErrorSnackBar, Footer, Header, Routing } from "@/common/components";
+import { ErrorSnackBar, Footer, Header, Routing, ScrollToTop } from "@/common/components";
 import styles from "./App.module.css";
 import { useAppSelector } from "@/common/hooks";
 import { selectStatus, selectThemeMode } from "../model/app-slice";
@@ -15,6 +15,7 @@ function App() {
       <CssBaseline />
       <Box className={styles.app} sx={{ backgroundColor: "background.default", color: "text.primary", display: "flex", flexDirection: "column" }}>
         <Header />
+        <ScrollToTop />
         {status === "loading" && <LinearProgress />}
         <Box  component="main" sx={{ width: "100%", flexGrow: 1 }}>
           <Routing />

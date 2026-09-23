@@ -16,5 +16,6 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
         <Typography variant="h6" sx={{mt: {xs: 0.75, sm: 1},fontSize: {xs: "0.85rem",sm: "0.95rem",md: "1rem"},lineHeight: 1.3}}>{movie.title}</Typography>
       </Link>
     </Box>
+
   );
 };
